@@ -23,7 +23,6 @@ int main(int argc, char **argv) {
     long long from_value = 0, to_value = 0;
     long long input_value;
     char place = ' ';
-    int check = 0;
     int count = 0;
     if (argc < 2) {
         return NOT_ENOUGH_PARAMS;
