@@ -13,7 +13,7 @@
 #define PAR_REDECLARATION -3
 #define INCORRECT_PARAMS -4
 
-extern void sort(long long *input_check, long long input_count);
+extern void sort(long long *input_chek, long long input_count);
 
 int main(int argc, char **argv) {
     int from_count = 0, to_count = 0;
@@ -24,6 +24,8 @@ int main(int argc, char **argv) {
     long long input_value;
     char place = ' ';
     int count = 0;
+    long long error_arr[100], stdout_arr[100];
+    int error_size = 0, stdout_size = 0;
     if (argc < 2) {
         return NOT_ENOUGH_PARAMS;
     } else if (argc > 3) {
@@ -49,16 +51,22 @@ int main(int argc, char **argv) {
             break;
         }
         if (input_value <= from_value) {
-            fprintf(stdout, "%lld ", input_value);
+            stdout_arr[stdout_size++] = input_value;
         }
         if (input_value >= to_value) {
-            fprintf(stderr, "%lld ", input_value);
+            error_arr[error_size++] = input_value;
         }
         if ((input_value > from_value) && (input_value < to_value)) {
             input[input_count] = input_value;
             input_check[input_count] = input_value;
             input_count++;
         }
+    }
+    for (int i = 0; i < stdout_size; i++) {
+        fprintf(stdout, "%lli ", stdout_arr[i]);
+    }
+    for (int i = 0; i < error_size; i++) {
+        fprintf(stderr, "%lli ", error_arr[i]);
     }
     sort(input, input_count);
     for (int i = 0; i < input_count; i++) {
