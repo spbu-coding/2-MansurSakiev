@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     int input_count = 0;
     long long input[MAX_INPUT_INIT_NUM_SIZE];
     long long input_check[MAX_INPUT_INIT_NUM_SIZE];
-    long long from_value = 0, to_value = 0;
+    long long from_value =-9999999999, to_value =9999999999;
     long long input_value;
     char place = ' ';
     int count = 0;
